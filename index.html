@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المهندس للمبيعات - الكاشير</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+    <div class="header-left">
+        <h1>🎪 المهندس للمبيعات</h1>
+        <p class="sub-title">نظام إدارة مبيعات متقدم</p>
+    </div>
+    <div class="header-right">
+        <span id="statusOnline" class="status-badge">🟢 متصل</span>
+        <button id="adminBtn" class="btn-admin">admin لوحة التحكم</button>
+    </div>
+</header>
+
+<div class="container">
+    <div class="main-content">
+        <!-- قسم المنتجات -->
+        <section class="section products-section">
+            <h2>📛 المنتجات</h2>
+            <div class="search-bar">
+                <input type="text" id="searchProducts" placeholder="بحث بالاسم...">
+                <select id="categoryFilter">
+                    <option value="">كل الأقسام</option>
+                </select>
+            </div>
+            <div id="productsContainer" class="products-grid"></div>
+        </section>
+
+        <!-- قسم قرائة الباركود -->
+        <section class="section barcode-section">
+            <h2>🔌 قرائة باركود</h2>
+            <div class="barcode-input-wrapper">
+                <input type="text" id="barcodeInput" placeholder="الباركود هنا..." autocomplete="off">
+                <button id="clearBarcodeBtn" class="btn-clear">مسح</button>
+            </div>
+            <p class="info-text">ربط ماسح بالباركود الضوتي</p>
+        </section>
+    </div>
+
+    <!-- قسم سلة الامور -->
+    <aside class="cart-sidebar">
+        <h2>📦 سلال الطلبية</h2>
+        <div id="cartItems" class="cart-items-list"></div>
+        <div class="cart-summary">
+            <div class="summary-row">
+                <span>عدد الأصناف:</span>
+                <span id="itemsCount" class="summary-value">0</span>
+            </div>
+            <div class="summary-row">
+                <span>الوزن (كم):</span>
+                <span id="totalQty" class="summary-value">0</span>
+            </div>
+            <div class="summary-row total">
+                <span>الإجمالي:</span>
+                <span id="totalPrice" class="summary-value">0.00</span>
+            </div>
+        </div>
+        <input type="text" id="customerName" placeholder="اسم العميل (اختياري)">
+        <input type="text" id="orderNotes" placeholder="ملاحظات (اختياري)">
+        <div class="action-buttons">
+            <button id="clearCartBtn" class="btn btn-danger">إلغاء</button>
+            <button id="printReceiptBtn" class="btn btn-warning">طباعة</button>
+            <button id="saveOrderBtn" class="btn btn-success">حفظ الفاتورة</button>
+        </div>
+    </aside>
+</div>
+
+<!-- طابعة مخفية -->
+<div id="printArea" style="display:none;" class="print-area"></div>
+
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js"></script>
+<script src="js/firebase-config.js"></script>
+<script src="js/barcode.js"></script>
+<script src="js/printing.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>
